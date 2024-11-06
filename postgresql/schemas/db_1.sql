@@ -1,8 +1,10 @@
-DROP SCHEMA IF EXISTS hello_schema CASCADE;
+DROP SCHEMA IF EXISTS contacts_info_schema CASCADE;
 
-CREATE SCHEMA IF NOT EXISTS hello_schema;
+CREATE SCHEMA IF NOT EXISTS contacts_info_schema;
 
-CREATE TABLE IF NOT EXISTS hello_schema.users (
-    name TEXT PRIMARY KEY,
-    count INTEGER DEFAULT(1)
+CREATE TABLE IF NOT EXISTS contacts_info_schema.contacts (
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    username TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    phone_number TEXT NOT NULL UNIQUE
 );
